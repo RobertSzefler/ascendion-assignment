@@ -1,0 +1,7 @@
+asyncpg==0.30.0
+fastapi[standard]==0.115.12
+prometheus_client==0.21.1
+pydantic==2.11.0
+requests==2.32.3
+sqlalchemy[asyncio]==2.0.40
+sqlmodel==0.0.24

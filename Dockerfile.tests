@@ -1,0 +1,7 @@
+FROM ascendion-assignment-app:latest
+WORKDIR /tests
+COPY ./requirements-test.txt /code/
+RUN pip install --no-cache-dir --upgrade -r /code/requirements-test.txt
+COPY ./tests /tests/
+ENV PYTHONPATH="$PYTHONPATH:/code/"
+CMD ["pytest", "-vv", "."]
