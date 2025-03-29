@@ -1,14 +1,15 @@
-*** General comments
+# Ascendion assignment
+
+## General comments
 
 The app runs in a Kubernetes cluster (tested with minikube on my laptop). The API server uses
 FastAPI, PostgreSQL as the db, and SQLAlchemy+SQLModel for convenient data manipulation. The
 code has been written asynchronously where possible.
 
-*** Deploying with minikube
+## Deploying with minikube
 
-1. Install minikube and helm
+1. Install minikube
 2. minikube start
-2. ./setup-cluster.sh (install Prometheus & Grafana)
 3. ./run-minikube.sh
 4. minikube service web --url
   -> returns the URL of the running app
@@ -17,20 +18,20 @@ code has been written asynchronously where possible.
 6. ./test-query.sh ${URL_FROM_STEP_4}
   -> should print query endpoint results
 
-*** Input validation
+## Input validation
 
 This is mostly done automatically by enforcing appropriate pydantic models for API
 endpoint request payloads. The only place that actually needs extra manual checks
 is app.get_by_salary.
 
-*** Tests
+## Tests
 
 To run unit tests, ./run-tests.sh (these run outside minikube, in a standalone container).
 
 There's just one example test, the code is simple enough that it's hard to come up with
 sensible unit tests.
 
-*** Observability
+## Observability
 
 The application provides Prometheus metrics (under ${APP_URL}/metrics).
 
